@@ -1,0 +1,13 @@
+
+intervalo=50
+
+n = 0:30
+
+t = 0:0.001:30
+
+x_discreto = cos((pi/2)*n).*exp(-n/2)
+
+x_cotinuo = cos((pi/2)*n).*exp(-n/2)
+
+plot(n,x)
+stem(n,x)

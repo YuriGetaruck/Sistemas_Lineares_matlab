@@ -1,0 +1,11 @@
+
+x = trapezio = (10,20,3)
+
+
+function x=trapezio(A,B,C)
+
+subida = (1:B)*A/B
+reta = A*ones
+
+
+end
