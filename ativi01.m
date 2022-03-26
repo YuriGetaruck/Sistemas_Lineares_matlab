@@ -9,15 +9,20 @@ senoslegais(2,3,2,30,15,0,3,0)  %chama funcao da questao 1
 figure                          %segunda figura
 hold all
 
-n = 1:0.001:10                  %variavel funcao
+n = 1:0.001:3                   %variavel funcao
 
-X = awgn ((3*sin(3*n+2)), 5)    %sinal com ruido
-plot(n,X,'red')                 %plot sinal com ruido
+X = awgn ((10*sin(10*n+2)), 1)  %sinal com ruido
+plot(n,X,'--red')               %plot sinal com ruido
 
 Y = mediamovel(20,X)            %chama a funcao da questao 2
 ni = n(1:length(Y))             %limita Y ate o intervalo calculado
 
 plot(ni,Y,'blue')               %plota o sinal filtrado
+
+xlabel('t')
+ylabel('X(t) e Y(t)')
+title('Grafico de sinal com ruido e filtrado por media movel')
+legend('SinalR', 'SinalF')
 
 
 %% ETAPA 1
@@ -25,28 +30,23 @@ plot(ni,Y,'blue')               %plota o sinal filtrado
 function senoslegais(A,B,C,D,Ab,Bb,Cb,Db)
 
 % a)
-A %= 2 %amplitude
-B %= 3 %desloc vert
-C %= 2 %frequecia por seg
-D %= 30 %defasagem em graus
+
 t = 0:0.0001:3
 
 Xa = A*sin(2*pi*C*t+D)+B
 
 % b)
 
-Ab %= 15
-Bb %= 0
-Cb %= 3
-Db %= 0
-
-Xb = Ab*sin(2*pi*Cb*t)+B
+Xb = Ab*sin(2*pi*Cb*t+Db)+Bb
 
 figure
 hold all
 
 plot(t,Xa,"red")
 plot(t, Xb, "k--")
+xlabel('X label')
+ylabel('Y label')
+title('Graph 1')
 
 end
 
